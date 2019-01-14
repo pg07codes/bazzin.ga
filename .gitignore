@@ -7,6 +7,7 @@
 .idea/
 .idea
 config.json
+/src/config.json
 
 # testing
 /coverage
