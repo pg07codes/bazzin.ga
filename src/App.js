@@ -17,10 +17,10 @@ class App extends Component {
             <Switch>
                 <Route exact path='/signin' component={SignIn}/>
                 <Route exact path='/signUp' component={SignUp}/>
-
+                <Route exact path='/' component={Trending}/>
             </Switch>
 
-            <Trending/>
+
 
 
         </Fragment>
