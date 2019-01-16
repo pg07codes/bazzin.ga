@@ -9,8 +9,7 @@ const unsplash = new Unsplash({
     secret: `${KEYS.API_SECRET}`,
 })
 
-
-unsplash.photos.listPhotos(2, 15, "latest")
+unsplash.photos.listPhotos(2, 15, "latesat")
     .then(toJson)
     .then(json => {
         console.log(json)

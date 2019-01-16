@@ -1,6 +1,5 @@
 import React, { Component , Fragment} from 'react';
 import Navbar from './components/Navbar'
-//import actions from './actions'
 import {Switch, Route} from 'react-router-dom'
 import SignIn from './containers/SignIn'
 import Trending from './components/Trending'

@@ -1,5 +1,7 @@
 import React, { Component} from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {signIn} from '../actions/authAction'
 
 const style={
     container:{
@@ -11,21 +13,32 @@ const style={
 class SignIn extends Component {
 
     state={
-        username:'',
+        email:'',
         password:''
+    }
+
+    handleChange=(e)=>{
+        this.setState({
+            [e.target.id]:e.target.value
+        })
+    }
+
+    handleSubmit=(e)=>{
+        e.preventDefault()
+        this.props.signIn(this.state)
     }
 
 
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
 
                 <div className="container" style={style.container}>
                     <div className="form-group row justify-content-center">
-                        <input type="text" className="form-control col-11 col-md-8 col-lg-5" id="username" placeholder="Username"/>
+                        <input onChange={this.handleChange} type="email" className="form-control col-11 col-md-8 col-lg-5" id="email" placeholder="Email"/>
                     </div>
                     <div className="form-group row justify-content-center">
-                        <input type="password" className="form-control col-11  col-md-8 col-lg-5" id="password" placeholder="Password"/>
+                        <input onChange={this.handleChange} type="password" className="form-control col-11  col-md-8 col-lg-5" id="password" placeholder="Password"/>
                     </div>
                     <div className="row justify-content-center">
                         <button type="submit" className="btn btn-primary col-3">Submit</button>
@@ -41,4 +54,10 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        signIn:(creds)=>dispatch(signIn(creds))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SignIn)
