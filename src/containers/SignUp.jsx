@@ -1,18 +1,19 @@
 import React, { Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link} from "react-router-dom";
 
 const style={
     container:{
-        marginTop:'12%'
+        marginTop:'10%'
     }
 }
 
 
-class SignIn extends Component {
+class SignUp extends Component {
 
     state={
         username:'',
-        password:''
+        password:'',
+        cPassword:''
     }
 
 
@@ -27,13 +28,15 @@ class SignIn extends Component {
                     <div className="form-group row justify-content-center">
                         <input type="password" className="form-control col-11  col-md-8 col-lg-5" id="password" placeholder="Password"/>
                     </div>
+                    <div className="form-group row justify-content-center">
+                        <input type="password" className="form-control col-11  col-md-8 col-lg-5" id="cPassword" placeholder="Confirm Password"/>
+                    </div>
                     <div className="row justify-content-center">
-                        <button type="submit" className="btn btn-primary col-3">Submit</button>
+                        <button type="submit" className="btn btn-success col-3">Submit</button>
                     </div>
                     <div className="row justify-content-center mt-2">
-                        <Link className="col-2" to='/signup'>new here? signup! </Link>
+                        <Link className="col-3 text-center" to='/signin'>Have account? signin. </Link>
                     </div>
-
                 </div>
 
             </form>
@@ -41,4 +44,4 @@ class SignIn extends Component {
     }
 }
 
-export default SignIn
+export default SignUp
