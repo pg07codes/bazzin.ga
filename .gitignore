@@ -8,6 +8,7 @@
 .idea
 config.json
 /src/config.json
+/src/fbConfig.js
 
 # testing
 /coverage
