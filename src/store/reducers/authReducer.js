@@ -1,4 +1,6 @@
-let init={}
+
+let init={
+}
 
 let authReducer=(state=init, action)=>{
     switch(action.type){

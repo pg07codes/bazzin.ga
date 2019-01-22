@@ -2,7 +2,7 @@ import React, { Component , Fragment} from 'react';
 import Navbar from './components/Navbar'
 import {Switch, Route} from 'react-router-dom'
 import SignIn from './containers/SignIn'
-import Trending from './components/Trending'
+import CuratedImages from './components/CuratedImages'
 import SignUp from './containers/SignUp'
 
 
@@ -16,7 +16,7 @@ class App extends Component {
             <Switch>
                 <Route exact path='/signin' component={SignIn}/>
                 <Route exact path='/signUp' component={SignUp}/>
-                <Route exact path='/' component={Trending}/>
+                <Route exact path='/' component={CuratedImages}/>
             </Switch>
 
 
