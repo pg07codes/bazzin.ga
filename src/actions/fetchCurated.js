@@ -9,10 +9,8 @@ const unsplash = new Unsplash({
 
 
 export default ()=>{
-    console.log(unsplash)
 
     return (dispatch,getState)=>{
-        console.log("in return ");
 
         unsplash.photos.listCuratedPhotos(2, 15, "latest")
             .then(toJson)
