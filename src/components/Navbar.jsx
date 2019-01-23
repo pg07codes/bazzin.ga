@@ -3,17 +3,18 @@ import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {signOut} from "../actions/authAction";
 
+
 let Navbar=(props)=> {
     return (
         <Fragment>
             <nav className="navbar navbar-expand-lg fixed navbar-dark bg-dark">
 
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigator"
+                        aria-controls="navigator" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"/>
                 </button>
 
-                <div className="collapse navbar-collapse" id="navbarNav">
+                <div className="collapse navbar-collapse" id="navigator">
 
                     <form className="form-inline ml-auto">
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -24,8 +25,15 @@ let Navbar=(props)=> {
 
                     {props.loggedIn?(
                         <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <button className="btn btn-danger" onClick={props.signOut}/>
+                            <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                   aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                <div className="dropdown-menu dropdown-menu-right">
+                                    <NavLink className="dropdown-item" to="/favourites">Favourites</NavLink>
+                                    <NavLink className="dropdown-item" to="/downloads">Downloads</NavLink>
+                                    <div role="separator" className="dropdown-divider"/>
+                                    <button className="dropdown-item" onClick={props.signOut}>Logout</button>
+                                </div>
                             </li>
                         </ul>
                         ):(

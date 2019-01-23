@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
-import {Link} from "react-router-dom";
-
+import {Link,Redirect} from "react-router-dom";
+import connect from "react-redux/es/connect/connect";
 const style={
     container:{
         marginTop:'10%'
@@ -11,19 +11,25 @@ const style={
 class SignUp extends Component {
 
     state={
-        username:'',
+        email:'',
         password:'',
         cPassword:''
     }
 
 
     render() {
+        
+        if(this.props.loggedIn===true){
+            return <Redirect to="/"/>
+        }
+        
+        
         return (
             <form>
 
                 <div className="container" style={style.container}>
                     <div className="form-group row justify-content-center">
-                        <input type="text" className="form-control col-11 col-md-8 col-lg-5" id="username" placeholder="Username"/>
+                        <input type="email" className="form-control col-11 col-md-8 col-lg-5" id="email" placeholder="Email"/>
                     </div>
                     <div className="form-group row justify-content-center">
                         <input type="password" className="form-control col-11  col-md-8 col-lg-5" id="password" placeholder="Password"/>
@@ -44,4 +50,10 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp
+let mapStateToProps=(state)=>{
+    return{
+        loggedIn:!state.firebase.auth.isEmpty
+    }
+}
+
+export default connect(mapStateToProps)(SignUp)
