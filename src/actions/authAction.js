@@ -17,3 +17,13 @@ export const signIn=(creds)=>{
     }
 
 }
+
+export const signOut=()=>{
+    return(dispatch,gS,{getFirebase})=>{
+        const firebase=getFirebase();
+
+        firebase.auth().signOut().then(()=>{
+            dispatch({type:"SIGNOUT_SUCCESS"})
+        })
+    }
+}

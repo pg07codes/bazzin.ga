@@ -9,14 +9,18 @@ let authReducer=(state=init, action)=>{
             return({
                 ...state,
                 authError: null,
-                loggedIn:true
             })
         case "LOGIN_ERROR":
             console.log(action.type)
             return({
                 ...state,
                 authError:action.error,
-                loggedIn:false
+            })
+        case "LOGOUT_SUCCESS":
+            console.log(action.type)
+            return({
+                ...state,
+                authError:null
             })
         default:
             return state

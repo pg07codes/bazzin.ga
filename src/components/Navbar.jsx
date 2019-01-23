@@ -1,7 +1,9 @@
 import React, {Fragment} from 'react'
 import {NavLink} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {signOut} from "../actions/authAction";
 
-export default props => {
+let Navbar=(props)=> {
     return (
         <Fragment>
             <nav className="navbar navbar-expand-lg fixed navbar-dark bg-dark">
@@ -20,11 +22,21 @@ export default props => {
                         </button>
                     </form>
 
-                    <ul className="navbar-nav ml-auto">
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to="/signin"><i className="fas fa-sign-in-alt"/></NavLink>
-                        </li>
-                    </ul>
+                    {props.loggedIn?(
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <button className="btn btn-danger" onClick={props.signOut}/>
+                            </li>
+                        </ul>
+                        ):(
+
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/signin"><i className="fas fa-sign-in-alt"/></NavLink>
+                            </li>
+                        </ul>
+                    )}
+
                 </div>
 
             </nav>
@@ -32,3 +44,18 @@ export default props => {
 
     )
 }
+
+let mapStateToProps=(state)=>{
+    return{
+        loggedIn:!state.firebase.auth.isEmpty
+    }
+}
+
+let mapDispatchToProps=(dispatch)=>{
+    return{
+        signOut:()=>dispatch(signOut())
+    }
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Navbar)

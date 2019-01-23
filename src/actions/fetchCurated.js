@@ -8,18 +8,19 @@ const unsplash = new Unsplash({
 })
 
 
-export default ()=>{
+export default (pageNum)=>{
 
-    return (dispatch,getState)=>{
+        return (dispatch,getState)=>{
 
-        unsplash.photos.listCuratedPhotos(2, 15, "latest")
-            .then(toJson)
-            .then(json => {
-                console.log("fetched images")
-                dispatch({type:"UPDATE_CURATED", json})
-            }).catch(e=>{
-                console.log(e);
-        });
+            unsplash.photos.listCuratedPhotos(pageNum, 15, "latest")
+                .then(toJson)
+                .then(json => {
+                    dispatch({type:"UPDATE_CURATED", json})
+                })
+                .catch(e=>{
+                    console.log(e);
+                });
 
-    }
+        }
+
 }

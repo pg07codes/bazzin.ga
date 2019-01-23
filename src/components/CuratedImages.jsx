@@ -6,27 +6,16 @@ import fetchCurated from '../actions/fetchCurated'
 
 class CuratedImages extends React.Component{
 
-    items;
-
-    componentDidMount(){
-
-        console.log("mount again",this.props.imgs)
-
-        this.items=this.props.imgs.map(i=>
-            <img width="300px" alt="random" src={i.urls.thumb}/>
-        )
-    }
+    curatedImages;
+    pageNum=1;
 
     componentDidUpdate(){
 
-        console.log("update triggered again",this.props.imgs)
-
-        this.items=this.props.imgs.map(i=>
-            <img width="300px" alt="random" src={i.urls.regular}/>
+        this.curatedImages=this.props.imgs.map(i=>
+            <img style={{margin:"10px"}} alt="random" src={i.urls.thumb}/>
         )
     }
 
-    x=2;
 
     render(){
 
@@ -35,11 +24,14 @@ class CuratedImages extends React.Component{
             <Fragment>
                 <InfiniteScroll
                     pageStart={0}
-                    loadMore={this.props.fetchCurated}
-                    hasMore={this.x--}
+                    loadMore={
+                        ()=>this.props.fetchCurated(this.pageNum++)}
+                    hasMore={true}
+                    threshold={70}
                     loader={<span>loading...</span>}>
-                    {this.items}
-                    {/*<h1>wip</h1>*/}
+
+                    {this.curatedImages}
+
                 </InfiniteScroll>
 
             </Fragment>
@@ -57,10 +49,8 @@ let mapStateToProps=(state)=>{
 let mapDispatchToProps=(dispatch)=>{
 
     return({
-        fetchCurated:()=>dispatch(fetchCurated())
+        fetchCurated:(pageNum)=>dispatch(fetchCurated(pageNum))
     })
 }
-
-// MAP DISPATCH TO PROPS SHOULD BE HERE I GUESS. CHECK THIS OUT..
 
 export default connect(mapStateToProps,mapDispatchToProps)(CuratedImages)

@@ -7,11 +7,12 @@ let init={
 let curatedImagesReducer=(state=init, action)=>{
     switch(action.type){
         case "UPDATE_CURATED":
-            console.log("curated updated")
             return({
                 ...state,
                 curatedImages:[...state.curatedImages,...action.json]
             })
+        case "LIMIT_REACHED":
+            return state
         default:
             return state
     }
