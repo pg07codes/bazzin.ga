@@ -1,0 +1,11 @@
+.USimages {
+    margin: 0.7vw;
+    filter:brightness(100%);
+    transition:filter 0.17s linear,transform 0.1s linear;
+}
+
+.USimages:hover{
+    filter: brightness(70%);
+    transition:filter 0.17s linear,transform 0.1s linear;
+    transform: scale(1.04);
+}

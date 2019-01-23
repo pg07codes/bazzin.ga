@@ -5,13 +5,13 @@ import connect from "react-redux/es/connect/connect";
 let Favourites= props => {
     if(props.loggedIn){
         return (
-            <h3>downloads</h3>
+            <h3>favs</h3>
         )
     }
 
     return(
         <Redirect to="/signin"/>
-            )
+    )
 }
 
 
