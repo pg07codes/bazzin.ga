@@ -6,11 +6,17 @@ import fetchCurated from '../actions/fetchCurated'
 import StackGrid , {transitions}from "react-stack-grid";
 import CuratedImagesStySheet from '../css/CuratedImagesStySheet.css'
 import Loader from '../components/Loader'
+import ImageDetails from "./ImageDetails";
+
 
 const { scaleDown }=transitions
 
-
 class CuratedImages extends React.Component{
+
+    state={
+        isOpenDetails:false,
+        ofImage:null
+    }
 
     curatedImages;
     pageNum=1;
@@ -18,9 +24,25 @@ class CuratedImages extends React.Component{
     componentDidUpdate(){
 
         this.curatedImages=this.props.imgs.map(i=>
-            <img className="USimages" id={i.id} alt={i.description} key={i.id} src={i.urls.small}/>
+            <img onClick={()=>this.openDetails(i)} className="USimages" id={i.id} alt={i.description} key={i.id} src={i.urls.small}/>
         )
     }
+
+    openDetails=(imgData)=>{
+        this.setState({
+            ofImage:imgData,
+            isOpenDetails:true
+        })
+    }
+
+
+    closeDetails = () => {
+        this.setState({
+            isOpenDetails: false,
+            ofImage:null
+        });
+    };
+
 
 
     render(){
@@ -28,12 +50,17 @@ class CuratedImages extends React.Component{
         return(
 
             <Fragment>
+
+                {this.state.isOpenDetails?
+                    <ImageDetails img={this.state.ofImage} open={this.state.isOpenDetails} handleClose={this.closeDetails}/>
+                    :null}
+
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={
                         ()=>this.props.fetchCurated(this.pageNum++)}
                     hasMore={true}
-                    threshold={50}
+                    threshold={200}
                     loader={<Loader/>}>
 
                     <StackGrid
@@ -43,7 +70,9 @@ class CuratedImages extends React.Component{
                         enter={scaleDown.enter}
                         entered={scaleDown.entered}
                         leaved={scaleDown.leaved}>
+
                         {this.curatedImages}
+
                     </StackGrid>
 
 

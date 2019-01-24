@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {signOut} from "../actions/authAction";
@@ -6,7 +6,6 @@ import {signOut} from "../actions/authAction";
 
 let Navbar=(props)=> {
     return (
-        <Fragment>
             <nav className="navbar navbar-expand-lg fixed navbar-dark bg-dark">
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigator"
@@ -26,8 +25,8 @@ let Navbar=(props)=> {
                     {props.loggedIn?(
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                                   aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                <button className="nav-link dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">Dropdown</button>
                                 <div className="dropdown-menu dropdown-menu-right">
                                     <NavLink className="dropdown-item" to="/favourites">Favourites</NavLink>
                                     <NavLink className="dropdown-item" to="/downloads">Downloads</NavLink>
@@ -48,7 +47,6 @@ let Navbar=(props)=> {
                 </div>
 
             </nav>
-        </Fragment>
 
     )
 }
