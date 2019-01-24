@@ -12,12 +12,12 @@ import 'firebase/auth'
 //  THESE ARE COMMENTED SO THAT THE NETLIFY MAY PICK KEYS FROM ENV VARS and 'process.env.' for netlify builds only #JUGAAD
 
 let firebaseConfig= {
-    apiKey: process.env.FB_API_KEY,
-    authDomain: process.env.FB_AUTH_DOMAIN,
-    databaseURL: process.env.FB_DATABASE_URL,
-    projectId: process.env.FB_PROJECT_ID,
-    storageBucket: process.env.FB_STORAGE_BUCKET,
-    messagingSenderId: process.env.FB_MESSAGING_SENDER_ID
+    apiKey: JSON.stringify(process.env.FB_API_KEY),
+    authDomain: JSON.stringify(process.env.FB_AUTH_DOMAIN),
+    databaseURL: JSON.stringify(process.env.FB_DATABASE_URL),
+    projectId: JSON.stringify(process.env.FB_PROJECT_ID),
+    storageBucket: JSON.stringify(process.env.FB_STORAGE_BUCKET),
+    messagingSenderId: JSON.stringify(process.env.FB_MESSAGING_SENDER_ID)
 }
 
 firebase.initializeApp(firebaseConfig);

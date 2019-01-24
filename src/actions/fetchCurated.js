@@ -6,8 +6,8 @@ import Unsplash , {toJson}from 'unsplash-js'
 // THESE ARE COMMENTED SO THAT THE NETLIFY MAY PICK KEYS FROM ENV VARS and 'process.env.' for netlify builds only #JUGAAD
 
 const unsplash = new Unsplash({
-    applicationId: process.env.UN_API_KEY,
-    secret: process.env.UN_API_SECRET
+    applicationId: JSON.stringify(process.env.UN_API_KEY),
+    secret: JSON.stringify(process.env.UN_API_SECRET)
 })
 
 
