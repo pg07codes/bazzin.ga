@@ -2,9 +2,11 @@
 
 import Unsplash , {toJson}from 'unsplash-js'
 import KEYS from '../config'
+let {UN_API_KEY,UN_API_SECRET}=KEYS
+
 const unsplash = new Unsplash({
-    applicationId: `${KEYS.API_KEY}`,
-    secret: `${KEYS.API_SECRET}`,
+    applicationId: `${UN_API_KEY}`,
+    secret: `${UN_API_SECRET}`,
 })
 
 
