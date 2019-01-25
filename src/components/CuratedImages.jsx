@@ -24,7 +24,18 @@ class CuratedImages extends React.Component{
     componentDidUpdate(){
 
         this.curatedImages=this.props.imgs.map(i=>
-            <img onClick={()=>this.openDetails(i)} className="USimages" id={i.id} alt={i.description} key={i.id} src={i.urls.small}/>
+            <div className="box" id={i.id} key={i.id}>
+                <img src={i.urls.small} alt={i.description} className="USimages"/>
+                    <div className="box-content">
+                        <div className="content">
+                            <img src={i.user.profile_image.medium} alt={i.user.name} style={{borderRadius:"50%"}}/>
+                            <h6 style={{paddingTop:"5px"}}>{i.user.name}</h6>
+                        </div>
+                        <ul className="icon">
+                            <li  style={{cursor:"pointer", fontSize:"1.5em"}} onClick={()=>this.openDetails(i)} ><i className="fas fa-search-plus"/></li>
+                        </ul>
+                    </div>
+            </div>
         )
     }
 
