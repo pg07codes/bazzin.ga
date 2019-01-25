@@ -1,14 +1,20 @@
 /*created by Pranav Gupta(pg07codes) on 22/1/19*/
 
 import Unsplash , {toJson}from 'unsplash-js'
-// import KEYS from '../config'
-// let {UN_API_KEY,UN_API_SECRET}=KEYS
+import KEYS from '../config.json'
+let {UN_API_KEY,UN_API_SECRET}=KEYS
 // THESE ARE COMMENTED SO THAT THE NETLIFY MAY PICK KEYS FROM ENV VARS and 'process.env.' for netlify builds only #JUGAAD
 
 const unsplash = new Unsplash({
-    applicationId: JSON.stringify(process.env.UN_API_KEY),
-    secret: JSON.stringify(process.env.UN_API_SECRET)
+    applicationId:UN_API_KEY,
+    secret: UN_API_SECRET
 })
+
+// const unsplash = new Unsplash({
+//     applicationId: process.env.REACT_APP_UN_API_KEY,
+//     secret:process.env.REACT_APP_UN_API_SECRET
+// })
+
 
 
 export default (pageNum)=>{

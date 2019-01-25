@@ -61,7 +61,7 @@ class CuratedImages extends React.Component{
                         ()=>this.props.fetchCurated(this.pageNum++)}
                     hasMore={true}
                     threshold={200}
-                    loader={<Loader/>}>
+                    loader={<Loader key={0}/>}>
 
                     <StackGrid
                         columnWidth={420}
