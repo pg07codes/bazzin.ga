@@ -2,7 +2,7 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {signOut} from "../actions/authAction";
-
+import Avatar from '@material-ui/core/Avatar'
 
 let Navbar=(props)=> {
     return (
@@ -25,14 +25,17 @@ let Navbar=(props)=> {
                     {props.loggedIn?(
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item dropdown">
-                                <button className="nav-link dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">Dropdown</button>
+
+                                <Avatar className="nav-link" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">XX</Avatar>
+
                                 <div className="dropdown-menu dropdown-menu-right">
                                     <NavLink className="dropdown-item" to="/favourites">Favourites</NavLink>
                                     <NavLink className="dropdown-item" to="/downloads">Downloads</NavLink>
                                     <div role="separator" className="dropdown-divider"/>
                                     <button className="dropdown-item" onClick={props.signOut}>Logout</button>
                                 </div>
+
                             </li>
                         </ul>
                         ):(
