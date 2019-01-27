@@ -6,6 +6,10 @@
 .pnp.js
 .idea/
 .idea
+config.json
+/src/config.json
+/src/fbConfigKeys.js
+/src/.env
 
 # testing
 /coverage
