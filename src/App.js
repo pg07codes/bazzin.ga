@@ -6,7 +6,7 @@ import CuratedImages from './components/CuratedImages'
 import SignUp from './containers/SignUp'
 import Favourites from "./components/Favourites";
 import Downloads from "./components/Downloads";
-
+import Home from './containers/Home'
 
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
             <Navbar/>
 
             <Switch>
-                <Route exact path='/' component={CuratedImages}/>
+                <Route exact path='/' component={Home}/>
                 <Route exact path='/signin' component={SignIn}/>
                 <Route exact path='/signUp' component={SignUp}/>
                 <Route exact path='/favourites' component={Favourites}/>

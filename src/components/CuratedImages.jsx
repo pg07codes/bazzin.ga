@@ -19,9 +19,11 @@ class CuratedImages extends React.Component{
     }
 
     curatedImages;
-    pageNum=1;
+    pageNumber=1;
 
     componentDidUpdate(){
+
+        this.curatedImages=[]// empytying the old images
 
         this.curatedImages=this.props.imgs.map(i=>
             <div className="box" id={i.id} key={i.id}>
@@ -69,7 +71,7 @@ class CuratedImages extends React.Component{
                 <InfiniteScroll
                     pageStart={0}
                     loadMore={
-                        ()=>this.props.fetchCurated(this.pageNum++)}
+                        ()=>this.props.fetchCurated(this.pageNumber++)}
                     hasMore={true}
                     threshold={200}
                     loader={<Loader key={0}/>}>
@@ -80,7 +82,8 @@ class CuratedImages extends React.Component{
                         appeared={scaleDown.appeared}
                         enter={scaleDown.enter}
                         entered={scaleDown.entered}
-                        leaved={scaleDown.leaved}>
+                        leaved={scaleDown.leaved}
+                        monitorImagesLoaded={true}>
 
                         {this.curatedImages}
 
@@ -104,7 +107,7 @@ let mapStateToProps=(state)=>{
 let mapDispatchToProps=(dispatch)=>{
 
     return({
-        fetchCurated:(pageNum)=>dispatch(fetchCurated(pageNum))
+        fetchCurated:(pageNumber)=>dispatch(fetchCurated(pageNumber))
     })
 }
 

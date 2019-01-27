@@ -1,7 +1,8 @@
 /*created by Pranav Gupta(pg07codes) on 22/1/19*/
 
 let init={
-    curatedImages:[]
+    curatedImages:[],
+    isLoading:false
 }
 
 let curatedImagesReducer=(state=init, action)=>{

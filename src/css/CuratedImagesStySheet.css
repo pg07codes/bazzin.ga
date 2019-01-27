@@ -39,7 +39,7 @@
 }
 .box:hover .content{
     opacity: 1;
-    bottom: 5px;
+    bottom: 0;
 }
 .box .title{
     color:#fff;

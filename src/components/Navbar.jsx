@@ -15,12 +15,6 @@ let Navbar=(props)=> {
 
                 <div className="collapse navbar-collapse" id="navigator">
 
-                    <form className="form-inline ml-auto">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                        <button className="btn btn-outline-alert my-2 my-sm-0" type="submit">
-                            <i className="fas fa-search"/>
-                        </button>
-                    </form>
 
                     {props.loggedIn?(
                         <ul className="navbar-nav ml-auto">

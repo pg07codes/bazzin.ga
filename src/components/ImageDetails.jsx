@@ -36,7 +36,7 @@ class ImageDetails extends React.Component{
                             </IconButton>
 
                             <IconButton>
-                                <a target="_blank" href={this.props.img.links.download}>
+                                <a target="_blank" rel="noopener noreferrer" href={this.props.img.links.download}>
                                     <i style={{color:"black"}} className="fas fa-download"/>
                                 </a>
                             </IconButton>
@@ -76,7 +76,7 @@ class ImageDetails extends React.Component{
 
                                 {this.props.img.user.links.html?
                                     <ToolTip title="unsplash" aria-label="unsplash">
-                                        <a target="_blank" style={{padding:"3vh 3vh"}}
+                                        <a target="_blank" rel="noopener noreferrer" style={{padding:"3vh 3vh"}}
                                            href={this.props.img.user.links.html}>
                                             <i className="fas fa-3x fa-camera-retro"/>
                                         </a>
@@ -87,7 +87,7 @@ class ImageDetails extends React.Component{
 
                                 {this.props.img.user.instagram_username?
                                     <ToolTip title="instagram" aria-label="instagram">
-                                        <a target="_blank" style={{padding:"3vh 3vh"}}
+                                        <a target="_blank" rel="noopener noreferrer" style={{padding:"3vh 3vh"}}
                                            href={"https://instagram.com/"+this.props.img.user.instagram_username}>
                                             <i className="fab fa-3x fa-instagram"/>
                                         </a>
@@ -97,7 +97,7 @@ class ImageDetails extends React.Component{
 
                                 {this.props.img.user.portfolio_url?
                                     <ToolTip title="portfolio" aria-label="portfolio">
-                                        <a target="_blank" style={{padding:"3vh 3vh"}} href={this.props.img.user.portfolio_url}>
+                                        <a target="_blank" rel="noopener noreferrer" style={{padding:"3vh 3vh"}} href={this.props.img.user.portfolio_url}>
                                             <i className="fas fa-3x fa-portrait"/>
                                         </a>
                                     </ToolTip>
@@ -106,7 +106,7 @@ class ImageDetails extends React.Component{
 
                                 {this.props.img.user.twitter_username?
                                     <ToolTip title="twitter" aria-label="twitter">
-                                        <a target="_blank" style={{padding:"3vh 3vh"}} href={"https://twitter.com/"+this.props.img.user.twitter_username}>
+                                        <a target="_blank" rel="noopener noreferrer"  style={{padding:"3vh 3vh"}} href={"https://twitter.com/"+this.props.img.user.twitter_username}>
                                             <i className="fab fa-3x fa-twitter-square"/>
                                         </a>
                                     </ToolTip>
