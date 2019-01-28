@@ -46,7 +46,7 @@ class SignIn extends Component {
                         <input onChange={this.handleChange} type="password" className="form-control col-11  col-md-8 col-lg-5" id="password" placeholder="Password"/>
                     </div>
                     <div className="row justify-content-center">
-                        <button type="submit" className="btn btn-primary col-3">Submit</button>
+                        <button type="submit" className="btn btn-success col-3">Submit</button>
                     </div>
                     <div className="row justify-content-center mt-2">
                         <Link className="col-2" to='/signup'>new here? signup! </Link>

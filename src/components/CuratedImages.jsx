@@ -31,10 +31,12 @@ class CuratedImages extends React.Component{
                     <div className="box-content">
                         <div className="content">
                             <img src={i.user.profile_image.medium} alt={i.user.name} style={{borderRadius:"50%"}}/>
-                            <h6 style={{paddingTop:"5px"}}>{i.user.name}</h6>
+                            <h6 style={{paddingTop:"5px",color:"#009670"}}>{i.user.name}</h6>
                         </div>
                         <ul className="icon">
-                            <li  style={{cursor:"pointer", fontSize:"1.5em"}} onClick={()=>this.openDetails(i)} ><i className="fas fa-search-plus"/></li>
+                            <li  style={{cursor:"pointer", fontSize:"1.5em"}} onClick={()=>this.openDetails(i)} >
+                                <i style={{color:"#009670"}}
+                                   className="fas fa-search-plus"/></li>
                         </ul>
                     </div>
             </div>

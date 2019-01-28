@@ -52,10 +52,11 @@ class SearchResults extends React.Component{
                 <div className="box-content">
                     <div className="content">
                         <img src={i.user.profile_image.medium} alt={i.user.name} style={{borderRadius:"50%"}}/>
-                        <h6 style={{paddingTop:"5px"}}>{i.user.name}</h6>
+                        <h6 style={{paddingTop:"5px",color:"#009670"}}>{i.user.name}</h6>
                     </div>
                     <ul className="icon">
-                        <li  style={{cursor:"pointer", fontSize:"1.5em"}} onClick={()=>this.openDetails(i)} ><i className="fas fa-search-plus"/></li>
+                        <li  style={{cursor:"pointer", fontSize:"1.5em"}} onClick={()=>this.openDetails(i)} >
+                            <i style={{color:"#009670"}} className="fas fa-search-plus"/></li>
                     </ul>
                 </div>
             </div>
@@ -87,7 +88,7 @@ class SearchResults extends React.Component{
                             <input onChange={this.handleChange} type="text" id="searchQuery" className="form-control " placeholder="Search" aria-label="Search"/>
                         </div>
                         <div className="form-group col-md-2 col-sm-1" >
-                            <button onClick={this.handleSearch} className="btn btn-primary">Submit</button>
+                            <button onClick={this.handleSearch} className="btn btn-outline-success">Submit</button>
 
                         </div>
                     </div>

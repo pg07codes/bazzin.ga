@@ -3,10 +3,17 @@ import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {signOut} from "../actions/authAction";
 import Avatar from '@material-ui/core/Avatar'
-
+import Logo from '../css/logo.png'
 let Navbar=(props)=> {
     return (
-            <nav className="navbar navbar-expand-lg fixed navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg fixed navbar-light bg-light">
+
+                <NavLink className="navbar-brand" to="/">
+                    <img src={Logo} width="30" height="30"
+                         style={{borderRadius:"50%", margin:"0 2px"}}
+                         className="d-inline-block align-top" alt="Bazzinga Logo"/>
+                        BaZZinga
+                </NavLink>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigator"
                         aria-controls="navigator" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,14 +27,14 @@ let Navbar=(props)=> {
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item dropdown">
 
-                                <Avatar className="nav-link" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">XX</Avatar>
+                                <Avatar style={{backgroundColor:"#009670"}} className="nav-link" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">PG</Avatar>
 
                                 <div className="dropdown-menu dropdown-menu-right">
-                                    <NavLink className="dropdown-item" to="/favourites">Favourites</NavLink>
-                                    <NavLink className="dropdown-item" to="/downloads">Downloads</NavLink>
-                                    <div role="separator" className="dropdown-divider"/>
-                                    <button className="dropdown-item" onClick={props.signOut}>Logout</button>
+                                    <NavLink style={{color:"#009670"}} className="dropdown-item" to="/favourites">Favourites</NavLink>
+                                    <NavLink style={{color:"#009670"}} className="dropdown-item" to="/downloads">Downloads</NavLink>
+                                    <div style={{color:"#009670"}}  role="separator" className="dropdown-divider"/>
+                                    <button style={{color:"#009670"}}  className="dropdown-item" onClick={props.signOut}>Logout</button>
                                 </div>
 
                             </li>
@@ -36,7 +43,7 @@ let Navbar=(props)=> {
 
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/signin"><i className="fas fa-sign-in-alt"/></NavLink>
+                                <NavLink className="nav-link" to="/signin"><i style={{color:"#009670"}} className="fas fa-sign-in-alt"/></NavLink>
                             </li>
                         </ul>
                     )}
@@ -50,7 +57,8 @@ let Navbar=(props)=> {
 
 let mapStateToProps=(state)=>{
     return{
-        loggedIn:!state.firebase.auth.isEmpty
+        loggedIn:!state.firebase.auth.isEmpty,
+        //initials:state.firebase.auth.
     }
 }
 

@@ -26,8 +26,15 @@ class ImageDetails extends React.Component{
                     open={this.props.open}
                     onClose={this.props.handleClose}
                     TransitionComponent={Transition}
+                    PaperProps={{
+                        style: {
+                            backgroundColor: '#2e3035'
+                        },
+                    }}
                 >
-                    <AppBar>
+                    <AppBar
+                        style={{backgroundColor:"#2e3035"}}
+                    >
 
                         <Toolbar>
 
@@ -37,15 +44,15 @@ class ImageDetails extends React.Component{
 
                             <IconButton>
                                 <a target="_blank" rel="noopener noreferrer" href={this.props.img.links.download}>
-                                    <i style={{color:"black"}} className="fas fa-download"/>
+                                    <i style={{color:"#009670"}} className="fas fa-download"/>
                                 </a>
                             </IconButton>
 
-                            <Typography variant="h6" style={{flex:1,textAlign:"center"}}>
+                            <Typography variant="h5" style={{flex:1,textAlign:"center", color:"#009670"}}>
                                 {this.props.img.description}
                             </Typography>
 
-                            <IconButton color="secondary" onClick={this.props.handleClose} aria-label="Close">
+                            <IconButton color="inherit" onClick={this.props.handleClose} aria-label="Close">
                                 <CloseIcon/>
                             </IconButton>
 
@@ -57,14 +64,14 @@ class ImageDetails extends React.Component{
                     </div>
 
                     <div className="jumbotron jumbotron-fluid" style={{margin:0}}>
-                        <div style={{marginLeft:"4vh"}}>
+                        <div style={{marginLeft:"2vh"}}>
 
-                            <h2 style={{padding:"8px",borderBottom:"8px black double"}} className="display4">About the photographer</h2>
+                            <h2 style={{padding:"8px",borderBottom:"8px black double",color:"#009670"}} className="display4">About the photographer</h2>
                             <img style={{borderRadius:"50%"}} src={this.props.img.user.profile_image.large} alt={this.props.img.user.name}/>
                             <span style={{fontSize:"2em", margin:"5vh"}}>{this.props.img.user.name}</span>
 
                             {this.props.img.user.bio?
-                                (<h5 style={{margin:"4vh 2vh"}}>Status : {this.props.img.user.bio}</h5>):
+                                (<h5 style={{margin:"4vh 2vh"}}><strong>STATUS :</strong>  {this.props.img.user.bio}</h5>):
                                 null}
 
                             <hr className="my-4"/>
